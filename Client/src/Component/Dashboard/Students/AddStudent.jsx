@@ -30,19 +30,14 @@ function AddStudent() {
         userData,
         config
       );
-      console.log("User added successfully:", response.data);
-      
-      toast.success("User Add successfully!");
-      setTimeout(()=>{
-        navigate("/Students");
-      }, 3000);
+      toast.success("User Add successfully !")
+  setTimeout(() => {
+    navigate("/Students");
+  }, 3000);
     } catch (error) {
-      console.error(
-        "Error adding user:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Error adding user:", error.response ? error.response.data : error.message);
     }
-  };
+};
 
   return (
     <div className="flex h-screen bg-gray-200">
@@ -113,7 +108,7 @@ function AddStudent() {
                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                   Role
                 </label>
-                <select
+                <select 
                   value={userData.role_name}
                   onChange={(e) =>
                     setUserData({ ...userData, role_name: e.target.value })
