@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Player from './Player';
 import { useDrop } from 'react-dnd';
-
+import task from '../../pic/task.jpg'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -145,7 +145,7 @@ const moveTaskTo = async (task, destination) => {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${task})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}

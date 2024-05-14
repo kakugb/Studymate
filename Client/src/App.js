@@ -32,7 +32,6 @@ import AssesmentUser from "./Component/UserComponents/AssesmentUser";
 import SessionUser from "./Component/UserComponents/SessionUser";
 import Assignments from "./Component/Dashboard/Assignment/Assignments";
 import CreateAssignment from "./Component/Dashboard/Assignment/CreateAssignment";
-import EditAssignment from "./Component/Dashboard/Assignment/EditAssignment";
 import AssignmentUser from "./Component/UserComponents/AssignmentUser";
 import StudentSubAssignment from "./Component/Dashboard/Assignment/StudentSubAssignment";
 import AssgFolder from "./Component/Dashboard/AssgFolder/Folders";
@@ -42,8 +41,9 @@ import Documents from "./Component/Dashboard/documents/Documents";
 import AddDocument from "./Component/Dashboard/documents/AddDocument";
 import AssgFolderUser from "./Component/UserComponents/AssgFolderUser";
 import DocumentUser from "./Component/UserComponents/DocumentUser";
-import UpdateDocument from "./Component/Dashboard/documents/UpdateDocument.jsx";
-
+import PsychometricTests from './Component/Dashboard/PsychometricTests/PsychometricTests.jsx'
+import AddQestion from './Component/Dashboard/PsychometricTests/AddQuestion.jsx'
+import PsychometricUser from './Component/UserComponents/PsychometricUser.jsx'
 function App() {
   return (
     <BrowserRouter>
@@ -81,7 +81,6 @@ function App() {
         <Route path="/SessionUser" element={<SessionUser />} />
         <Route path="/Assignment" element={<Assignments />} />
         <Route path="/CreateAssignment" element={<CreateAssignment />} />
-        <Route path="/EditAssignment/:id" element={<EditAssignment />} />
         <Route path="/AssignmentUser" element={<AssignmentUser />} />
         <Route path="/StudentSubAssignment/:id" element={<StudentSubAssignment />}/>
         <Route path="/AssgFolder" element={<AssgFolder/>}/>
@@ -91,7 +90,9 @@ function App() {
         <Route path="/AddDocument/:id" element={<AddDocument/>}/>
        <Route path="/AssgFolderUser" element={<AssgFolderUser/>}/>
        <Route path="/DocumentUser/:id" element={<DocumentUser/>}/>
-       <Route path="/UpdateDocument/:id" element={<UpdateDocument/>}/>
+       <Route path="/PsychometricTests" element={<PsychometricTests/>}/>
+       <Route path="/AddQuestion" element={<AddQestion/>}/>
+       <Route path="/PsychometricUser" element={<PsychometricUser/>}/>
       </Routes>
     </BrowserRouter>
   );

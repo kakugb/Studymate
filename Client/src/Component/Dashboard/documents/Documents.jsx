@@ -16,9 +16,7 @@ function Document() {
   const navigate = useNavigate()
   const { id } = useParams();
   const [documents, setDocuments] = useState([]);
-  const UpdateDocument = (id) => {
-    navigate(`/UpdateDocument/${id}`);
-  };
+ 
   const fetchData = async () => {
     try {
       const token = sessionStorage.getItem("token"); 
@@ -108,7 +106,6 @@ function Document() {
                    
                     <img src={file} alt="file" className="w-32 h-20" />
                   </a>
-                  <CreateIcon className="absolute z-10 -ml-6 mt-1" onClick={(e)=>UpdateDocument(document._id)}/>
                   <DeleteOutlinedIcon className="absolute z-10 ml-16 mt-1" onClick={(e)=>DeleteDocument(document._id)} />
 
                   <h2 className="text-lg text-bold mt-2 text-center">

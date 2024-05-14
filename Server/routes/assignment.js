@@ -4,7 +4,7 @@ const router = express.Router();
 const multer = require("multer");
 const Assignment = require("../Models/assignment");
 const path = require("path"); // Import the path module
-
+const ExcelJS = require('exceljs');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "uploads/"); // Specify the destination folder for uploads
@@ -185,22 +185,22 @@ router.get("/assignments/submissions/:assignmentId", async (req, res) => {
         const assignmentId = req.params.assignmentId;
         const student = req.params.student;
 
-        // Find the assignment by ID
+        
         const assignment = await Assignment.findById(assignmentId);
 
         if (!assignment) {
             return res.status(404).json({ message: "Assignment not found" });
         }
 
-        // Get submissions for the assignment
+       
         const submissions = assignment.submissions;
 
-        // If there are no submissions, return an empty array
+        
         if (!submissions || submissions.length === 0) {
             return res.status(404).json({ message: "No submissions found for this assignment" });
         }
 
-        // Map submissions to include both ID and document filename
+        
         const submissionDetails = submissions.map(submission => ({
             id: submission._id,
             document: submission.document,
@@ -215,6 +215,39 @@ router.get("/assignments/submissions/:assignmentId", async (req, res) => {
     }
 });
 
+
+router.get('/assignments/export', async (req, res) => {
+    try {
+      const assignments = await Assignment.find();
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Assignments');
+  
+      // Add header row with bold formatting
+      const headerRow = worksheet.addRow(['title', 'description', 'filePath','deadline', 'result']);
+      headerRow.eachCell((cell) => {
+        cell.font = { bold: true };
+      });
+  
+      // Add data rows
+      assignments.forEach((assignment) => {
+        assignment.submissions.forEach((submission) => {
+          worksheet.addRow([assignment.title, assignment.description, assignment.filePath,assignment.deadline, submission.result]);
+        });
+      });
+  
+      // Set response headers for Excel file download
+      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+      res.setHeader('Content-Disposition', 'attachment; filename="assignments.xlsx"');
+  
+      // Write workbook to response and send
+      await workbook.xlsx.write(res);
+      res.end();
+    } catch (error) {
+      console.error('Error exporting assignments to Excel:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
 
 
 

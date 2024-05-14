@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import student from '../../../pic/student.jpg'
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddStudent() {
@@ -49,15 +50,15 @@ function AddStudent() {
         <Header />
 
         {/* Main content */}
-        <main className="w-full bg-gray-200 ">
+        <main className="w-full h-screen bg-gray-200 "  style={{ backgroundImage: `url(${student})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="ml-4 mt-2">
             {/* Content of the dashboard */}
-            <h1 className="text-2xl text-center font-semibold text-black ">
+            <h1 className="text-3xl text-center font-extrabold text-white my-4  ">
               Add Student
             </h1>
 
-            <form className="max-w-sm md:mx-auto mr-5" onSubmit={handleSubmit}>
+            <form className="max-w-md md:mx-auto mr-5 bg-gray-100 p-6 rounded-md" onSubmit={handleSubmit}>
               <div className="mb-2">
                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                   Name

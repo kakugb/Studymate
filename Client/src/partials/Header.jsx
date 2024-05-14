@@ -17,7 +17,7 @@ const Navbar = () => {
   }; 
 
   return (
-    <nav className="md:w-full w-full border-gray-200 h-14 dark:bg-gray-900 flex items-center justify-end md:pr-4 bg-white mb-3">
+    <nav className="md:w-full w-full border-gray-200 h-14 dark:bg-gray-900 flex items-center justify-end md:pr-4 bg-gray-300 ">
       <div className="relative">
         {/* User icon */}
         <button

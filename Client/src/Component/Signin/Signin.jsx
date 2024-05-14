@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import grade from '../../pic/grade.jpg'
 function Signin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -60,7 +61,7 @@ function Signin() {
 
   return (
    
-    <div class="h-screen bg-gradient-to-br bg-gray-300 flex justify-center items-center w-full">
+    <div class="h-screen bg-gradient-to-br bg-gray-300 flex justify-center items-center w-full" style={{ backgroundImage: `url(${grade})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <form>
         <div class="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
           <div class="space-y-4">

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import session from '../../../pic/session.jpg'
 function Sessions() {
   const [data, setData] = useState([]);
   const fetchUserData = async () => {
@@ -74,12 +74,12 @@ function Sessions() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${session})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
             <div className="w-full flex justify-end mr-32 my-3">
-              <button className=" bg-blue-500  font-bold py-2 px-4 rounded-md md:mr-8 mr-3 ">
+              <button className="w-[150px] bg-blue-500  font-bold py-2 px-4 rounded-md md:mr-8 mr-3 ">
                 <Link to="/AddSession" className="text-white no-underline">
                   Add Session
                 </Link>

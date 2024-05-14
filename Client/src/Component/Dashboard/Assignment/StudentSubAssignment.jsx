@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import assignment from '../../../pic/assignment.jpg'
 function StudentSubAssignment() {
   const [results, setResults] = useState([]);
   const [data, setData] = useState([]);
@@ -79,12 +80,12 @@ function StudentSubAssignment() {
       <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${assignment})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="md:ml-4 mt-2">
-            <h1 className="text-2xl font-semibold text-black text-center">
+            <h1 className="text-3xl text-center font-extrabold text-white my-4 ">
               Add Folder
             </h1>
-            <div className="w-10/12 mx-auto">
+            <div className="w-10/12 mx-auto bg-white">
               <table className="text-left w-full">
                 <thead className="bg-black flex text-white w-full">
                   <tr className="flex w-full mb-4">

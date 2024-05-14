@@ -9,6 +9,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import folder from '../../../pic/folder.jpg'
 function AssgFolder() {
   const navigate = useNavigate();
 
@@ -70,7 +71,7 @@ const DeleteFolder =async(id)=>{
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${folder})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}

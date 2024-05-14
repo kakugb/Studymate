@@ -5,6 +5,7 @@ import Header from "../../../partials/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import assignment from '../../../pic/assignment.jpg'
 function Assignments() {
   const navigate = useNavigate()
   const [data, setData] = useState([]);
@@ -50,11 +51,47 @@ function Assignments() {
     } catch (error) {
       console.error("Error deleting record:", error);
     }
-  }
+  } 
+ 
+
+  const handleExport = async () => {
+    try {
+      const token = sessionStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
   
-  const handleEdit = (assignmentId) => {
-    navigate(`/EditAssignment/${assignmentId}`);
+      // Make a GET request to your backend API endpoint
+      const response = await axios.get('http://localhost:5000/assignment/assignments/export', {
+        ...config,
+        responseType: 'blob'
+      });
+      
+      // Create a Blob from the response data
+      const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  
+      // Create a URL for the Blob
+      const url = window.URL.createObjectURL(blob);
+      
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'assignments.xlsx');
+  
+      // Append the link to the document body and trigger the click event
+      document.body.appendChild(link);
+      link.click();
+  
+      // Clean up by revoking the URL
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error exporting assignments:', error);
+    }
   };
+  
+  
 
   return (
     <div className="flex h-screen bg-gray-200">
@@ -66,20 +103,23 @@ function Assignments() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${assignment})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
-            <div className="w-full flex justify-end mr-32 my-3">
+            <div className="w-full flex justify-end  my-3">
             
-              <button className=" bg-blue-500  font-bold py-2 px-4 rounded-md md:mr-12">
+              <button className=" bg-blue-500  font-bold py-2 px-4 rounded-md mr-12">
                 <Link to="/CreateAssignment" className="text-white no-underline">
                   Add Assignment
                 </Link>
               </button>
+              <button className=" bg-blue-500  font-bold py-2 px-4 rounded-md md:mr-12 text-white " onClick={handleExport}>
+                  Export Excel
+              </button>
             </div>
        
-            <div className="w-10/12 mx-auto">
+            <div className="w-10/12 mx-auto bg-white">
 
 	<table className="text-left w-full">
 		<thead className="bg-black flex text-white w-full">
@@ -110,7 +150,6 @@ function Assignments() {
                         <td className="p-4 w-1/4"><Link to={`/StudentSubAssignment/${assignment._id}`} className="text-black font-bold no-underline">Submitted Assignment</Link>
                         </td>
                       <td className="p-4 w-1/6 flex justify-between">
-                        <button className="h-12 bg-blue-500 text-white px-3 py-1 rounded-md mr-2" onClick={() => handleEdit(assignment._id)}>Edit</button>
                         <button className="h-12 bg-red-500 text-white px-3 py-1 rounded-md" onClick={()=>DeleteRec(assignment._id)}>Delete</button>
                       </td>
                     </tr>

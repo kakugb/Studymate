@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import student from '../../../pic/student.jpg'
 function Students() {
   const [data, setData] = useState([]);
   const fetchUserData = async () => {
@@ -88,12 +89,12 @@ function Students() {
         <Header />
 
         {/* Main content */}
-        <main className=" flex-1 overflow-x-hidden overflow-y-auto  md:bg-gray-200   md:pl-48">
+        <main className=" flex-1 overflow-x-hidden overflow-y-auto  md:bg-gray-900   md:pl-48" style={{ backgroundImage: `url(${student})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-6 mt-2 ">
             {/* Content of the dashboard */}
             <div className="w-full h-12 flex justify-end md:pr-3 pr-3">
-              <button className="w-[100px] h-10 bg-blue-500  font-semibold text-sm   rounded-md md:mr-10">
+              <button className="w-[200px] h-10 bg-blue-500  font-semibold text-sm   rounded-md md:mr-10">
                 <Link to="/AddStudent" className="text-white  no-underline">
                   Add Student
                 </Link>

@@ -4,7 +4,7 @@ import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import assignment from '../../pic/assignment.jpg'
 function AssignmentUser() {
   const [studentId, setRole] = useState(null);
   const [data, setData] = useState([]);
@@ -40,19 +40,20 @@ function AssignmentUser() {
     const fetchData = async () => {
       try {
         const decodedToken = JSON.parse(atob(token.split(".")[1]));
-
+  
         if (decodedToken && decodedToken.id && decodedToken.role) {
           setRole(decodedToken.id);
         } else {
-          setError({ message: "ID or role not found in the decoded token" });
+          console.error("ID or role not found in the decoded token");
         }
       } catch (error) {
-        setError(error);
+        console.error(error);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -96,9 +97,9 @@ function AssignmentUser() {
       <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${assignment})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="md:ml-4 mt-2">
-            <div className="w-10/12 mx-auto">
+            <div className="w-10/12 mx-auto bg-white">
               <table className="text-left w-full">
                 <thead className="bg-black flex text-white w-full">
                   <tr className="flex w-full mb-4">

@@ -6,7 +6,7 @@ import Sidebar from "../../../partials/Sidebar";
 import Header from "../../../partials/Header";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import grade from '../../../pic/grade.jpg'
 function Grades() {
   const [data, setData] = useState([]);
   const fetchUserData = async () => {
@@ -73,7 +73,7 @@ function Grades() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${grade})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}

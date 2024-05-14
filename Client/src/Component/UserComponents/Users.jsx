@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import student from '../../pic/student.jpg'
 function Users() {
   const [userData, setUserData] = useState(null);
   const [toastShown, setToastShown] = useState(false); 
@@ -65,12 +66,12 @@ function Users() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${student})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
-          <div className="md:ml-10 mt-2">
+          <div className="md:ml-10 mt-2 ">
             {/* Content of the dashboard */}
             {currentUser && (
-              <div className="md:w-11/12 w-full md:relative absolute md:left-10 left-2  overflow-x-auto shadow-md sm:rounded-lg mt-2">
+              <div className="md:w-11/12 w-full md:relative absolute md:left-10 left-2  overflow-x-auto shadow-md sm:rounded-lg mt-2 bg-white">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>

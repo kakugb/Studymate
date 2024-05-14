@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import group from '../../../pic/group.jpg'
 function Group() {
   const [data, setData] = useState([]);
   // Fetch user data from the API
@@ -76,7 +77,7 @@ function Group() {
         <Header />
 
         {/* Main content */}
-        <main className=" bg-gray-200 md:pl-60">
+        <main className="w-full h-screen bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${group})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-6 md:mr-4 mt-2">
             {/* Content of the dashboard */}
@@ -87,7 +88,7 @@ function Group() {
                 </Link>
               </button>
             </div>
-            <div className="md:w-11/12 w-full md:relative absolute md:left-16 left-2  overflow-x-auto shadow-md sm:rounded-lg mt-2 border border-spacing-7">
+            <div className="md:w-11/12 w-full md:relative absolute md:left-16 left-2  overflow-x-auto shadow-md sm:rounded-lg mt-2 border border-spacing-7 bg-white">
               <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                   <tr>

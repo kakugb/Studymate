@@ -16,6 +16,7 @@ const graderoute = require("./routes/grade");
 const assignmentRoute = require("./routes/assignment"); 
 const folderRoute = require("./routes/folder")
 const documentRoute =require("./routes/document")
+
 const cors = require('cors');
 
 const app = express();
@@ -35,6 +36,8 @@ db.once("open" , ()=> console.log("Connected to Database"));
 // Middlewares
 app.use(express.json());
 
+const PsychometricTestRoute = require("./routes/sycomatric");
+app.use("/psychometric-test", authmiddleware, adminmiddleware, PsychometricTestRoute);
 // protected Route Prefix 
 app.use("/auth", authroute);
 app.use("/roles" ,  authmiddleware, adminmiddleware, rolesroute);

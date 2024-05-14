@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import folder from '../../pic/folder.jpg'
 function AssgFolderUser() {
     const [folders, setFolders] = useState([]);
 
@@ -46,13 +47,13 @@ function AssgFolderUser() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto  md:pl-60" style={{ backgroundImage: `url(${folder})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
           
 
-            <div className="w-10/12 mx-auto grid grid-cols-6 gap-6 mt-5">
+            <div className="w-10/12 mx-auto grid grid-cols-6 gap-6 mt-5 ">
               {
                 folders?.map((folder)=>(
 

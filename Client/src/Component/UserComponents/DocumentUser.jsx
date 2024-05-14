@@ -5,7 +5,7 @@ import Sidebar from "../../partials/Sidebar";
 import Header from "../../partials/Header";
 
 import file from "../../pic/file.png";
-
+import assignment from '../../pic/assignment.jpg'
 
 function DocumentUser() {
   const { id } = useParams();
@@ -50,13 +50,13 @@ function DocumentUser() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${assignment})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
            
 
-            <div className="w-10/12 mx-auto grid grid-cols-6 gap-6 mt-5">
+            <div className="w-10/12 mx-auto grid grid-cols-6 gap-6 mt-5 bg-white">
               {documents.map((document) => (
                 <div key={document._id} className="w-32">
                   <a

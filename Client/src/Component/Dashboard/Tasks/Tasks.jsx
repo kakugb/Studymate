@@ -8,7 +8,7 @@ import { useDrop } from 'react-dnd';
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import task from '../../../pic/task.jpg'
 function Tasks() {
   const [todos, setTodos] = useState([]);
   const [incompleted, setIncompleted] = useState([]);
@@ -141,25 +141,25 @@ const moveTaskTo = async (task, destination) => {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${task})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
             <div className="w-full h-10 flex justify-end md:pr-3 pr-3">
               {/* Add Task button */}
-              <button className=" bg-blue-500 font-bold py-2 px-4 rounded-md">
+              <button className="w-[200px] bg-blue-500 font-bold py-2 px-4 rounded-md">
                 <Link to="/AddTask" className="text-white no-underline">
                   Add Task
                 </Link>
               </button>
             </div>
-            <div className="md:w-11/12 w-full md:relative absolute md:left-16 left-2  overflow-x-auto shadow-md sm:rounded-lg mt-2 border-8   divide-black">        
+            <div className="md:w-11/12 w-full md:relative absolute md:left-16 left-2   shadow-md sm:rounded-lg mt-2    divide-black border-spacing-10">        
                 <div className="flex flex-row gap-8">
                   
                 
                 {/* Todo */}
 
-                <div className="md:w-[500px]  outline outline-offset-2 outline-4 outline-gray-300  mt-1">
+                <div className="md:w-[500px] h-screen bg-gray-400   mt-1 ">
                       <h1 className="w-full text-3xl text-white text-center bg-red-600 rounded-md">TODO</h1>
                      <div className="md:w-full w-[250px] text-[15px] p-4 h-[70vh] shadow-md rounded-md " ref={addToIncompletedRef}>
                      {incompleted.map((task) => (
@@ -180,7 +180,7 @@ const moveTaskTo = async (task, destination) => {
                 
                      {/* Progress */}
 
-                  <div className="w-[500px] outline outline-offset-2 outline-4 outline-gray-300  mt-1 ml-2">
+                  <div className="w-[500px] h-screen bg-gray-400 mt-1 ml-2">
                       <h1 className="w-full text-3xl text-white text-center bg-indigo-600">Progress</h1>
                      <div className="md:w-full w-[250px] text-[15px] p-4 h-[70vh] shadow-md rounded-md" ref={addToTodoRef}>
                      {todos.map((task) => (
@@ -203,7 +203,7 @@ const moveTaskTo = async (task, destination) => {
 
 
 
-                      <div className="w-[500px] outline outline-offset-2 outline-4 outline-gray-300 mt-1 mr-2">
+                      <div className="w-[500px] h-screen bg-gray-400 mt-1 mr-2">
                       <h1 className="w-full text-3xl text-white text-center bg-green-400 rounded-md">Completed</h1>
                      <div className="md:w-full w-[250px] text-[15px] p-4 h-[70vh] shadow-md rounded-md" ref={addToCompletedRef}>
                      {completed.map((task) => (

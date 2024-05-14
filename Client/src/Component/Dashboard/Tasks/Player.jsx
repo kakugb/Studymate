@@ -41,7 +41,7 @@ function Player({ task, type, onDeleteTask, fetchUserData }) {
 
   return (
     <div
-    className=' p-2 rounded-md shadow-md mb-3 text-center outline outline-offset-2 outline-4 outline-gray-300 ' ref={dragRef}
+    className=' p-2 rounded-md shadow-md mb-3 text-center bg-white ' ref={dragRef}
     style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       <div className='flex justify-evenly text-black font-semibold'>Task Name: {task.task_name}</div>

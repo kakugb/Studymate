@@ -6,8 +6,7 @@ import Header from "../../../partials/Header";
 import Sidebar from "../../../partials/Sidebar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import session from '../../../pic/session.jpg'
 function EditSession() {
   const { userId } = useParams();
   const [userData, setUserData] = useState([]);
@@ -93,13 +92,13 @@ function EditSession() {
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 ">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 " style={{ backgroundImage: `url(${session})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="md:ml-4 mt-2">
             {/* Content of the dashboard */}
-            <h1 className="text-2xl text-center font-semibold text-black">Edit Session</h1>
+            <h1 className="text-3xl text-center font-extrabold text-white my-4 ">Edit Session</h1>
 
-            <form className="max-w-sm md:mx-auto mr-5 " onSubmit={handleSubmit}>
+            <form className="max-w-md md:mx-auto mr-5 bg-white p-4" onSubmit={handleSubmit}>
               <div className="mb-2">
                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                   Session Name

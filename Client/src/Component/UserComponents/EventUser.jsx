@@ -6,7 +6,7 @@ import { Resource } from 'devextreme-react/scheduler';
 import Scheduler from "devextreme-react/scheduler";
 const currentDate = new Date();
 const views = ["day", "week", "workWeek", "month"];
-
+import event from '../../pic/event.jpg'
 function EventUser() {
   
   const [filteredUserData, setFilteredUserData] = useState(null); 
@@ -81,7 +81,7 @@ console.log("fff",filteredUserData)
         <Header />
 
         {/* Main content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 md:pl-60" style={{ backgroundImage: `url(${event})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           {/* Your main content goes here */}
           <div className="ml-4 mt-2">
             {/* Content of the dashboard */}
